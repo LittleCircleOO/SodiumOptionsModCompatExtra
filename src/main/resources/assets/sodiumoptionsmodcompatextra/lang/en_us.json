@@ -1,0 +1,23 @@
+{
+  "options.sodiumoptionsmodcompatextra.chunksfadein.animations": "Animations",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.mod_enabled": "Mod enabled",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.update_notifier_enabled": "Update notifier",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.mod_button_enabled": "Mod button in settings",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.fade_enabled": "Fade enabled",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.fade_type": "Fade type",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.fade_type.full": "Full",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.fade_type.lined": "Lined",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.fade_time": "Fade time",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.animation_enabled": "Animation enabled",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.animation_curve": "Animation Curve",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.animation_curve.linear": "Linear",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.animation_curve.ease_out": "Ease out",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.animation_curve.ease_circular": "Ease circular",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.animation_curve.bounce": "Bounce",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.animation_start": "Animation start (-y)",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.animation_start_unit": "%.2f",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.animate_near_player": "Animate near player",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.animation_time": "Animation time",
+  "options.sodiumoptionsmodcompatextra.chunksfadein.time_unit": "%.2f sec",
+  "options.sodiumoptionsmodcompatextra.cit.textures": "Textures"
+}
