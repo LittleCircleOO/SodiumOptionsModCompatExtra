@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.9-SNAPSHOT'
+    id 'fabric-loom' version '1.11-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -29,7 +29,7 @@ repositories {
         }
     }
 
-    //SpruceUI
+    //SpruceUI&LambDynLights
     maven {
         name = "Gegy"
         url = uri("https://maven.gegy.dev")
@@ -54,13 +54,13 @@ dependencies {
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation "maven.modrinth:sodium:mc1.20.1-0.5.11"
+    modImplementation "maven.modrinth:sodium:mc1.20.1-0.5.13-fabric"
     modImplementation "maven.modrinth:reeses-sodium-options:mc1.20.1-1.7.2"
-    modImplementation "maven.modrinth:sodium-options-api:iffT6iAE"
-    include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.2.0-beta.6")))
+    modImplementation "maven.modrinth:sodium-options-api:nww69hqs"
+    include(implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-fabric:0.3.7-beta.1")))
 
-    modImplementation "maven.modrinth:lambdynamiclights:2.3.2+1.20.1"
-    modImplementation "dev.lambdaurora:spruceui:5.0.0+1.20"
+    modImplementation "dev.lambdaurora.lambdynamiclights:lambdynamiclights-runtime:4.4.0+1.20.1"
+    modImplementation "dev.lambdaurora:spruceui:6.2.1+1.20"
 
     modCompileOnly "maven.modrinth:ryoamiclights:0.2.3+mc1.20.1-fabric"
     modCompileOnly "maven.modrinth:obsidianui:0.2.3+mc1.20.1-fabric"
