@@ -6,6 +6,7 @@ import dev.lambdaurora.lambdynlights.DynamicLightsMode;
 import dev.lambdaurora.lambdynlights.ExplosiveLightingMode;
 import dev.lambdaurora.lambdynlights.LambDynLights;
 
+import dev.lambdaurora.lambdynlights.LambDynLightsConstants;
 import me.jellysquid.mods.sodium.client.gui.options.OptionGroup;
 import me.jellysquid.mods.sodium.client.gui.options.OptionImpact;
 import me.jellysquid.mods.sodium.client.gui.options.OptionImpl;
@@ -24,10 +25,10 @@ import java.util.List;
 
 public class LambDynLightsOptionPage extends OptionPage {
 
-    public static final OptionIdentifier<Void> ID = OptionIdentifier.create(new ResourceLocation(LambDynLights.NAMESPACE, "dynamic_lights"));
+    public static final OptionIdentifier<Void> ID = OptionIdentifier.create(new ResourceLocation(LambDynLightsConstants.NAMESPACE, "dynamic_lights"));
 
     public LambDynLightsOptionPage() {
-        super(Component.translatable("lambdynlights.option.mode"), create());
+        super(Component.translatable("lambdynlights.menu.tabs.general"), create());
         ((IOptionGroupIdAccessor)this).sodiumOptionsAPI$setId(ID);
     }
 
@@ -75,16 +76,6 @@ public class LambDynLightsOptionPage extends OptionPage {
                         )
                         .add(
                                 OptionImpl.createBuilder(boolean.class, LambDynLightsOptionsStorage.INSTANCE)
-                                        //.setId(new Identifier(LambDynLights.NAMESPACE, "light_sources_block_entities"))
-                                        .setName(Component.translatable("lambdynlights.option.light_sources.block_entities"))
-                                        .setTooltip(Component.translatable("lambdynlights.tooltip.block_entities"))
-                                        .setControl(TickBoxControl::new)
-                                        .setBinding((options, value) -> LambDynLights.get().config.getBlockEntitiesLightSource().set(value),
-                                                (options) -> LambDynLights.get().config.getBlockEntitiesLightSource().get())
-                                        .build()
-                        )
-                        .add(
-                                OptionImpl.createBuilder(boolean.class, LambDynLightsOptionsStorage.INSTANCE)
                                         //.setId(new Identifier(LambDynLights.NAMESPACE, "light_sources_self"))
                                         .setName(Component.translatable("lambdynlights.option.light_sources.self"))
                                         .setTooltip(Component.translatable("lambdynlights.tooltip.self_light_source"))
@@ -93,6 +84,16 @@ public class LambDynLightsOptionPage extends OptionPage {
                                                 (options) -> LambDynLights.get().config.getSelfLightSource().get())
                                         .build()
                         )
+//                      .add(
+//                              OptionImpl.createBuilder(boolean.class, LambDynLightsOptionsStorage.INSTANCE)
+//                                      //.setId(new Identifier(LambDynLights.NAMESPACE, "light_sources_block_entities"))
+//                                      .setName(Component.translatable("lambdynlights.option.light_sources.block_entities"))
+//                                      .setTooltip(Component.translatable("lambdynlights.tooltip.block_entities"))
+//                                      .setControl(TickBoxControl::new)
+//                                      .setBinding((options, value) -> LambDynLights.get().config.getBlockEntitiesLightSource().set(value),
+//                                              (options) -> LambDynLights.get().config.getBlockEntitiesLightSource().get())
+//                                      .build()
+//                      )
                         .add(
                                 OptionImpl.createBuilder(boolean.class, LambDynLightsOptionsStorage.INSTANCE)
                                         //.setId(new Identifier(LambDynLights.NAMESPACE, "light_sources_water_sensitive_check"))
@@ -103,6 +104,11 @@ public class LambDynLightsOptionPage extends OptionPage {
                                                 (options) -> LambDynLights.get().config.getWaterSensitiveCheck().get())
                                         .build()
                         )
+                        .build()
+        );
+
+        groups.add(
+                OptionGroup.createBuilder()
                         .add(
                                 OptionImpl.createBuilder(ExplosiveLightingMode.class, LambDynLightsOptionsStorage.INSTANCE)
                                         //.setId(new Identifier(LambDynLights.NAMESPACE, "light_sources_creeper"))
@@ -141,6 +147,46 @@ public class LambDynLightsOptionPage extends OptionPage {
                                         }))
                                         .setBinding((options, value) -> LambDynLights.get().config.setTntLightingMode(value),
                                                 (options) -> LambDynLights.get().config.getTntLightingMode())
+                                        .build()
+                        )
+                        .add(
+                                OptionImpl.createBuilder(boolean.class, LambDynLightsOptionsStorage.INSTANCE)
+                                        //.setId(new Identifier(LambDynLights.NAMESPACE, "light_sources_water_sensitive_check"))
+                                        .setName(Component.translatable("lambdynlights.option.light_sources.beam"))
+                                        .setTooltip(Component.translatable("lambdynlights.option.light_sources.beam.tooltip"))
+                                        .setControl(TickBoxControl::new)
+                                        .setBinding((options, value) -> LambDynLights.get().config.getBeamLighting().set(value),
+                                                (options) -> LambDynLights.get().config.getBeamLighting().get())
+                                        .build()
+                        )
+                        .add(
+                                OptionImpl.createBuilder(boolean.class, LambDynLightsOptionsStorage.INSTANCE)
+                                        //.setId(new Identifier(LambDynLights.NAMESPACE, "light_sources_water_sensitive_check"))
+                                        .setName(Component.translatable("lambdynlights.option.light_sources.glowing_effect"))
+                                        .setTooltip(Component.translatable("lambdynlights.option.light_sources.glowing_effect.tooltip"))
+                                        .setControl(TickBoxControl::new)
+                                        .setBinding((options, value) -> LambDynLights.get().config.getGlowingEffectLighting().set(value),
+                                                (options) -> LambDynLights.get().config.getGlowingEffectLighting().get())
+                                        .build()
+                        )
+                        .add(
+                                OptionImpl.createBuilder(boolean.class, LambDynLightsOptionsStorage.INSTANCE)
+                                        //.setId(new Identifier(LambDynLights.NAMESPACE, "light_sources_water_sensitive_check"))
+                                        .setName(Component.translatable("lambdynlights.option.light_sources.guardian_laser"))
+                                        .setTooltip(Component.translatable("lambdynlights.option.light_sources.guardian_laser.tooltip"))
+                                        .setControl(TickBoxControl::new)
+                                        .setBinding((options, value) -> LambDynLights.get().config.getGuardianLaser().set(value),
+                                                (options) -> LambDynLights.get().config.getGuardianLaser().get())
+                                        .build()
+                        )
+                        .add(
+                                OptionImpl.createBuilder(boolean.class, LambDynLightsOptionsStorage.INSTANCE)
+                                        //.setId(new Identifier(LambDynLights.NAMESPACE, "light_sources_water_sensitive_check"))
+                                        .setName(Component.translatable("lambdynlights.option.light_sources.sonic_boom"))
+                                        .setTooltip(Component.translatable("lambdynlights.option.light_sources.sonic_boom.tooltip"))
+                                        .setControl(TickBoxControl::new)
+                                        .setBinding((options, value) -> LambDynLights.get().config.getSonicBoomLighting().set(value),
+                                                (options) -> LambDynLights.get().config.getSonicBoomLighting().get())
                                         .build()
                         )
                         .build()
